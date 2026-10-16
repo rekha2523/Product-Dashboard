@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<h2>Product Dashboard</h2>
+<div id="products"></div>
+
+<script>
+fetch('https://fakestoreapi.com/products')
+.then(res => res.json())
+.then(data => {
+    data.forEach(p => {
+        document.getElementById("products").innerHTML +=
+        `<h3>${p.title}</h3>
+         <img src="${p.image}" width="80">
+         <p>Price: $${p.price}</p>
+         <p>Category: ${p.category}</p>`;
+    });
+})
+.catch(() => {
+    document.getElementById("products").innerHTML = "Error";
+});
+</script>
+
+</body>
+</html>
